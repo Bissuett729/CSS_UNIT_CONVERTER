@@ -1,0 +1,67 @@
+.ng-cue-header-container {
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.9px);
+  -webkit-backdrop-filter: blur(13.9px);
+  // border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.ng-cue-dropdown-container {
+  position: relative;
+  display: block;
+
+  .ng-cue-dropdown-button {
+    padding: 5px 11px;
+    font-size: 16px;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.9px);
+    -webkit-backdrop-filter: blur(13.9px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    cursor: pointer;
+  }
+
+  &:hover .ng-cue-dropdown-button {
+    border-radius: 15px 15px 0px 0px;
+    border-bottom: 0;
+  }
+
+  &:hover .ng-cue-dropdown-content {
+    display: block;
+  }
+
+  .ng-cue-dropdown-content {
+    display: none;
+    font-size: 13px;
+    position: absolute;
+    z-index: 1;
+    min-width: 200px;
+    color: #fff;
+    background: #343b74;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 0px 15px 15px 15px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+
+    a {
+      color: #fff;
+      padding: 8px 10px;
+      text-decoration: none;
+      display: block;
+      transition: 0.1s;
+
+      &:hover {
+        background-color: #ffffff1f;
+        color: #ffffff;
+      }
+      &:focus {
+        background-color: #2c3264;
+        color: #fdfdfd;
+      }
+    }
+  }
+}

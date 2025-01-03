@@ -1,0 +1,100 @@
+<section class="flex justify-center mt-16 mb-8 flex-col items-center gap-12">
+    <h2 class="text-white font-semibold text-4xl">
+      <span class="text-[#74ff00] uppercase">{{ selectedUnit1 }} </span> to
+      <span class="text-[#74ff00] uppercase">{{ selectedUnit2 }} </span> converter
+    </h2>
+  
+    <div class="flex md:flex-row flex-col gap-4 items-center">
+      <!-- Primer input -->
+      <div class="flex flex-col gap-1 items-center max-w-full z-40">
+        <span class="text-white">{{ selectedUnit1.toUpperCase() }}</span>
+        <div class="ng-cue-input-css-convert relative rounded-lg flex items-center w-full">
+          <input
+            type="number"
+            #pixelsInput
+            [(ngModel)]="inputValue1"
+            (input)="convertInputValue1()"
+            class="max-w-80 outline-none bg-transparent p-4 text-white text-2xl text-center appearance-none"
+          />
+          <div class="ng-cue-dropdown-container mr-2">
+            <button class="ng-cue-dropdown-button min-w-20">
+              {{ selectedUnit1 }}
+              <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="ng-cue-dropdown-content">
+              <button (click)="selectUnit1('px')">px</button>
+              <button (click)="selectUnit1('rem')">rem</button>
+              <button (click)="selectUnit1('em')">em</button>
+              <button (click)="selectUnit1('cm')">cm</button>
+              <button (click)="selectUnit1('in')">in</button>
+              <button (click)="selectUnit1('pt')">pt</button>
+              <button (click)="selectUnit1('%')">%</button>
+            </div>
+          </div>
+        </div>
+        <i class="ri-arrow-right-double-line text-white hidden md:block"></i>
+      </div>
+  
+      <i class="ri-arrow-left-right-line text-white"></i>
+  
+      <!-- Segundo input -->
+      <div class="flex flex-col gap-1 items-center max-w-full">
+        <span class="text-white">{{ selectedUnit2.toUpperCase() }}</span>
+        <div class="ng-cue-input-css-convert relative rounded-lg flex items-center w-full">
+          <input
+            type="number"
+            [(ngModel)]="inputValue2"
+            #remSizeInput
+            (input)="convertInputValue2()"
+            class="max-w-80 outline-none bg-transparent p-4 text-white text-2xl text-center appearance-none"
+          />
+          <div class="ng-cue-dropdown-container mr-2">
+            <button class="ng-cue-dropdown-button min-w-20">
+              {{ selectedUnit2 }}
+              <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="ng-cue-dropdown-content">
+              <button (click)="selectUnit2('px')">px</button>
+              <button (click)="selectUnit2('rem')">rem</button>
+              <button (click)="selectUnit2('em')">em</button>
+              <button (click)="selectUnit2('cm')">cm</button>
+              <button (click)="selectUnit2('in')">in</button>
+              <button (click)="selectUnit2('pt')">pt</button>
+              <button (click)="selectUnit2('%')">%</button>
+            </div>
+          </div>
+        </div>
+        <i class="ri-arrow-left-double-line text-white hidden md:block"></i>
+      </div>
+    </div>
+  
+    <div class="w-full flex items-center justify-center gap-2">
+        <span class="text-white text-4xl font-semibold">Result: </span>
+        <span class="text-[#74ff00] text-4xl font-semibold">{{ conversionResult }} {{ conversionResultUnit }}</span>
+    </div>
+  
+    <div class="w-full flex items-center justify-center gap-2">
+      <span class="text-white">
+        Calculation based on a root font-size of
+        <span class="text-[#74ff00]">{{ rootFontSize }}</span> pixel.
+      </span>
+    </div>
+
+    <div class="w-full flex-col px-20 flex items-center gap-2">
+        <div class="flex justify-start w-full">
+            <span class="text-white font-semibold text-3xl">
+                Hot 
+                <span class="text-[#74ff00]">Keys</span>
+            </span>
+        </div>
+        <section class="flex flex-col w-full gap-2">
+            @for (hotKey of keys; track $index) {
+                <div class="flex items-center gap-2">
+                    <span class="hotkey text-[#74ff00] font-semibold">{{hotKey.key}}</span>
+                    <span class="text-white">{{hotKey.description}}</span>
+                </div>
+            }
+        </section>
+    </div>
+  </section>
+  
